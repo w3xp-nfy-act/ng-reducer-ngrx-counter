@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
+import { LoadingService } from './service/loading.service';
 
 @Component({
   selector: 'app-root',
   template: `
-    <h1>{{title}}</h1>
-    <h2>{{subtitle}}</h2>
-    <app-first></app-first>
-    <app-second></app-second>
-    <app-third></app-third>
+  <ng-template [ngIf]="loadingService.isLoading() | async">
+  <h1>{{title}}</h1>
+  <h2>{{subtitle}}</h2>
+  <app-first></app-first>
+  <app-second></app-second>
+  <app-third></app-third>
+</ng-template>
+
     <p><br></p>
     <app-ngrx-ov-md></app-ngrx-ov-md>
   `,
@@ -16,4 +20,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'State management with reducer pattern via NgRx.';
   subtitle = 'Example:';
+
+  constructor(public loadingService: LoadingService) { }
 }

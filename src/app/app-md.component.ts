@@ -25,7 +25,7 @@ export class AppMarkdownComponent implements OnInit {
 
     setTimeout(() => {
       this.loadingService.showLoader();
-    }, 0);
+    },0);
   }
 
   public onError($event) {
