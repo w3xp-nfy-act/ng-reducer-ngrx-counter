@@ -1,65 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { SharedModule } from './shared/shared.module';
-import { MarkdownModule } from 'ngx-markdown';
-
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule,
-  MatSidenavModule,
-  MatSnackBarModule,
-  MatToolbarModule
-} from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { routing, appRoutingProviders } from './app.routing';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
-import {
-  NotificationService,
-} from './shared/services';
+import { reducers } from './store';
 
-import {
-  ObservableModule
-} from './examples/01-observable-example/observable.module';
+import { IncrementComponent, DecrementComponent, ResetComponent } from './totalizator';
 
-import {
-  OperatorModule,
-} from './examples/02-operators-example/operator.module';
+import { CounterEffects } from './store/effects/calculate.effects';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    IncrementComponent,
+    DecrementComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    SharedModule,
-    ObservableModule,
-    OperatorModule,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatSidenavModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    MarkdownModule.forRoot(),
-    routing
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([CounterEffects])
   ],
-  providers: [
-    appRoutingProviders,
-    NotificationService,
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
