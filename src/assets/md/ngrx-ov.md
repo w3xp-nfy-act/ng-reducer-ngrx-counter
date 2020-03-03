@@ -6,7 +6,9 @@ What is application state? Theoretically, it is the entire memory of the applica
 ### NgRx App State Management
 - Let’s look at the NgRx implementation — there are several components to understand. 
 
-![This is the interaction between those components in NgRx](./assets/img/NgRxEffectsFlow.png)
+<img src="./assets/img/NgRxEffectsFlow.png"
+     alt="This is the interaction between those components in NgRx"
+     style="margin: 20px;" />
 
 ### Store
 Store is what holds the app's state.
