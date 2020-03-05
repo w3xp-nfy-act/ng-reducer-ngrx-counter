@@ -12,6 +12,8 @@ import { AppMarkdownComponent, } from './app-md.component';
 import { CounterEffects } from './store/effects/calculate.effects';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { MarkdownModule } from 'ngx-markdown';
     EffectsModule.forRoot([CounterEffects]),
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]

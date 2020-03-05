@@ -82,6 +82,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-reducer-ngrx-counter-rev01"
+    }
+  },
+  "defaultProject": "ng-reducer-ngrx-counter-rev01",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
